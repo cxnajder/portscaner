@@ -14,4 +14,5 @@ while read linia;
     do
         echo "skanowanie adresu $lini:"
         #nmap 
-done < temp.txt
+done < adresy.txt
+rm adresy.txt
