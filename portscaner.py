@@ -3,4 +3,11 @@ plik_adresy = open("adresy.txt", "r+")
 if plik_adresy.readable():
     zbior_adresow = plik_adresy.readlines()
     for adres in zbior_adresow:
-        print(adres)
+        print("="*10)
+        print("Skanowanie hosta", adres)
+        for port in range (1,5000):
+            soket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            wynik_polaczenia = soket.connect_ex((adres, port))
+            if not(wynik_polaczenia):
+                print("Port", port, "jest otwarty")
+            soket.close()
