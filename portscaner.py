@@ -5,7 +5,7 @@ if plik_adresy.readable():
     for adres in zbior_adresow:
         print("="*10)
         print("Skanowanie hosta", adres)
-        for port in range (1,5000):
+        for port in range (1, 65535):
             soket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             wynik_polaczenia = soket.connect_ex((adres, port))
             if not(wynik_polaczenia):
